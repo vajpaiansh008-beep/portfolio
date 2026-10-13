@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
-import resume from "../../assets/resume/Ansh-Vajpai-Resume.pdf";
+import resume from "../../assets/resume/Ansh-vajpai-resume.pdf";
 
 import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
 
