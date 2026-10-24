@@ -20,15 +20,7 @@ Currently, I am focused on building production-ready projects, writing clean and
   },
 
   skills: {
-    frontend: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "React",
-      "Redux",
-      "Next.js",
-      "Tailwind CSS",
-    ],
+    frontend: ["HTML", "CSS", "JavaScript", "React", "Redux", "Tailwind CSS"],
 
     backend: ["Node.js", "Express.js", "MongoDB", "REST API"],
 
@@ -58,50 +50,22 @@ Currently, I am focused on building production-ready projects, writing clean and
 
     {
       id: 2,
-      title: "ShopVerse",
-
+      title: "CINEBOOK - Movie Theater Booking System",
       description:
-        "Modern e-commerce application featuring authentication, cart, search, and responsive UI.",
-
-      tech: ["React", "Redux", "Express", "MongoDB"],
-
-      github: "#",
-
-      live: "#",
-
-      image: "https://placehold.co/600x400/1A1A24/8B5CF6?text=ShopVerse",
-    },
-
-    {
-      id: 3,
-      title: "TaskFlow",
-
-      description:
-        "Task management application with authentication and productivity tracking.",
-
-      tech: ["React", "Node.js", "MongoDB"],
-
-      github: "#",
-
-      live: "#",
-
-      image: "https://placehold.co/600x400/1A1A24/8B5CF6?text=TaskFlow",
-    },
-
-    {
-      id: 4,
-      title: "StreamBox",
-
-      description:
-        "Movie discovery web application powered by REST APIs with trending and search features.",
-
-      tech: ["React", "Tailwind", "REST API"],
-
-      github: "#",
-
-      live: "#",
-
-      image: "https://placehold.co/600x400/1A1A24/8B5CF6?text=StreamBox",
+        "A full-stack MERN movie ticket booking platform where users can explore movies, browse showtimes, select seats, and manage their bookings. Includes secure authentication, real-time seat availability management through seat locking, theater and show administration, and Razorpay test-mode payment integration. Note: To explore the admin features, use the demo credentials: Email: test1@test.com | Password: Test1@009. These credentials are for demo purposes only.",
+      tech: [
+        "React",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Mongoose",
+        "JWT",
+        "Razorpay",
+      ],
+      github: "https://github.com/vajpaiansh008-beep/movie-theater-booking",
+      live: "https://movie-theater-booking-eosin.vercel.app/",
+      image: "https://placehold.co/600x400/1A1A24/8B5CF6?text=CINEBOOK",
     },
   ],
   dsa: {

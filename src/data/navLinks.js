@@ -23,8 +23,8 @@ export const navLinks = [
     name: "Education",
     to: "education",
   },
-  {
-    name: "Contact",
-    to: "contact",
-  },
+  // {
+  //   name: "Contact",
+  //   to: "contact",
+  // },
 ];

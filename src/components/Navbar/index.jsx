@@ -25,13 +25,13 @@ const Navbar = () => {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-[#0B0B0F]/90 backdrop-blur-lg shadow-lg border-b border-white/10"
-          : "bg-transparent"
+          ? "border-b border-white/[0.08] bg-[#0B0B0F]/85 shadow-xl shadow-black/20 backdrop-blur-2xl"
+          : "border-b border-white/[0.04] bg-[#0B0B0F]/20 backdrop-blur-md"
       }`}
     >
-      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-10 h-20">
+      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-10">
         {/* Logo */}
         <motion.div
           whileHover={{ scale: 1.08 }}
@@ -42,16 +42,22 @@ const Navbar = () => {
             to="hero"
             smooth={true}
             duration={500}
-            className="text-3xl font-bold text-white"
+            className="group cursor-pointer text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
           >
-            <span className="text-violet-500">&lt;</span>
-            AV
-            <span className="text-violet-500"> /&gt;</span>
+            <span className="bg-gradient-to-b from-violet-300 to-violet-600 bg-clip-text text-transparent transition-colors">
+              &lt;
+            </span>
+            <span className="transition-colors duration-300 group-hover:text-violet-300">
+              AV
+            </span>
+            <span className="bg-gradient-to-b from-violet-300 to-fuchsia-500 bg-clip-text text-transparent">
+              /&gt;
+            </span>
           </Link>
         </motion.div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden items-center gap-7 lg:flex xl:gap-9">
           {navLinks.map((item) => (
             <li key={item.to}>
               <Link
@@ -60,8 +66,8 @@ const Navbar = () => {
                 duration={500}
                 spy={true}
                 offset={-80}
-                activeClass="text-violet-500"
-                className="relative cursor-pointer text-gray-300 font-medium transition hover:text-violet-400 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-violet-500 after:transition-all hover:after:w-full"
+                activeClass="text-violet-400 after:!w-full"
+                className="relative cursor-pointer whitespace-nowrap py-2 text-sm font-medium tracking-wide text-gray-400 transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 after:transition-all after:duration-300 hover:text-white hover:after:w-full"
               >
                 {item.name}
               </Link>
@@ -76,16 +82,20 @@ const Navbar = () => {
           rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="hidden md:flex items-center gap-2 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-5 py-2 rounded-full hover:shadow-lg hover:shadow-violet-500/30 transition-all duration-300"
+          className="ml-auto hidden items-center gap-2 rounded-full border border-violet-400/30 bg-gradient-to-r from-violet-600 to-fuchsia-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-900/20 transition-all duration-300 hover:border-violet-300/60 hover:shadow-xl hover:shadow-violet-500/25 md:flex lg:ml-6"
         >
-          <FaDownload />
+          <FaDownload className="text-xs transition-transform duration-300 group-hover:translate-y-0.5" />
           Resume
         </motion.a>
 
         {/* Mobile Hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-white text-3xl"
+          aria-label={
+            menuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
+          aria-expanded={menuOpen}
+          className="ml-auto flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-2xl text-gray-200 transition-all duration-300 hover:border-violet-500/40 hover:bg-violet-500/10 hover:text-violet-300 md:ml-4 lg:hidden"
         >
           {menuOpen ? <HiOutlineX /> : <HiOutlineMenuAlt3 />}
         </button>
@@ -99,34 +109,36 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -25 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-[#13131A] border-t border-white/10"
+            className="border-t border-white/[0.08] bg-[#101017]/95 shadow-2xl shadow-black/30 backdrop-blur-2xl md:hidden"
           >
-            <ul className="flex flex-col items-center py-6 gap-6">
-              {navLinks.map((item) => (
-                <li key={item.to}>
+            <ul className="mx-auto flex max-w-md flex-col items-center gap-2 px-6 py-6">
+              {navLinks.map((item, index) => (
+                <li key={item.to} className="w-full">
                   <Link
                     to={item.to}
                     smooth={true}
                     duration={500}
                     offset={-80}
                     onClick={() => setMenuOpen(false)}
-                    className="text-lg text-gray-300 hover:text-violet-500 cursor-pointer"
+                    className="block w-full cursor-pointer rounded-xl border border-transparent px-5 py-3 text-center text-base font-medium text-gray-300 transition-all duration-300 hover:border-violet-500/20 hover:bg-violet-500/[0.08] hover:text-violet-300"
                   >
                     {item.name}
                   </Link>
                 </li>
               ))}
 
-              <a
-                href={resume}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-2 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-6 py-3 rounded-full hover:scale-105 transition-all duration-300"
-              >
-                <FaDownload />
-                Resume
-              </a>
+              <li className="mt-3 w-full">
+                <a
+                  href={resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl border border-violet-400/20 bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-3.5 font-semibold text-white shadow-lg shadow-violet-900/20 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/20"
+                >
+                  <FaDownload className="text-sm" />
+                  View Resume
+                </a>
+              </li>
             </ul>
           </motion.div>
         )}

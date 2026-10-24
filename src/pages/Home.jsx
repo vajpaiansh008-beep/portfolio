@@ -22,7 +22,7 @@ const Home = () => {
       <DSA />
       <Experience />
       <Education />
-      <Contact />
+      {/* <Contact /> */}
       <Footer />
     </main>
   );
